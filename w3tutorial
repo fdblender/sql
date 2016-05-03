@@ -1,0 +1,46 @@
+w3schools SQL Tutorial
+http://www.w3schools.com/sql/
+
+SELECT
+SELECT * FROM Customers;
+SELECT CustomerName, City, Country from Customers;
+
+DISTINCT
+SELECT DISTINCT City from Customers;
+SELECT DISTINCT Country from Customers;
+
+WHERE
+SELECT * from Customers where Country='Mexico';
+SELECT CustomerName where City='Berlin';
+SELECT ContactName, Address, City from Customers WHERE City='Berlin';
+
+Operator	Description
+=	Equal
+<>	Not equal. Note: In some versions of SQL this operator may be written as !=
+>	Greater than
+<	Less than
+>=	Greater than or equal
+<=	Less than or equal
+BETWEEN	Between an inclusive range
+LIKE	Search for a pattern
+IN	To specify multiple possible values for a column
+
+AND & OR
+select * from Customers where City='Strasbourg' and Country='France';
+select * from Customers 
+  where Country='France' or Country='Mexico';
+select * from Customers
+  where Country='Germany' and
+  (City='Berlin' or City='München');
+
+ORDER BY (sort)
+select * from Customers
+  order by Country;
+select * from Customers
+  order by Country, City;
+select * from Country
+  order by Country DESC;
+select * from Country
+  order by Country DESC, city ASC;
+
+SQL INSERT INTO 
