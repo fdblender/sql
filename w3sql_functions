@@ -1,1 +1,13 @@
 SELECT AVG(column_name) FROM table_name
+select ProductName, Price from Products
+  where price >(select avg(price) from Products);
+
+SELECT COUNT(column_name) FROM table_name;
+select count(*) as OrdersFromCustomer7 from Orders
+  where CustomerID=7;
+  
+SELECT COUNT(*) FROM table_name;
+select count(*) as NumberOfOrders from Orders;
+
+SELECT COUNT(DISTINCT column_name) FROM table_name;
+SELECT count(distinct CustomerID) from Orders;
