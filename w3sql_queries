@@ -42,6 +42,7 @@ select * from Country
   order by Country DESC;
 select * from Country
   order by Country DESC, city ASC;
+select count(*) as NumberOfOrders from Orders;
 
 INSERT INTO table_name
   VALUES (value1,value2,value3,...);
