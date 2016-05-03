@@ -45,13 +45,20 @@ select * from Country
 
 INSERT INTO table_name
   VALUES (value1,value2,value3,...);
-INSERT INTO table_name (column1,column2,column3,...)
-  VALUES (value1,value2,value3,...);
+  
 insert into Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
   values ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
 insert into Customers (CustomerName, City, Country)
   values ('Cardinal', 'Stavanger', 'Norway');
   
+//!!! Notice the WHERE clause in the SQL UPDATE statement!
+UPDATE table_name
+SET column1=value1,column2=value2,...
+WHERE some_column=some_value;
+
+update Customers
+  set ContactName='Frances'
+  where CustomerName='Alfreds Futterkiste';
 
 
 
