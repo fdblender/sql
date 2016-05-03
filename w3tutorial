@@ -43,11 +43,15 @@ select * from Country
 select * from Country
   order by Country DESC, city ASC;
 
-SQL INSERT INTO 
-INSERT INTO table_name (column1,column2,column3,...)
-  VALUES (value1,value2,value3,...);
 INSERT INTO table_name
   VALUES (value1,value2,value3,...);
+INSERT INTO table_name (column1,column2,column3,...)
+  VALUES (value1,value2,value3,...);
+insert into Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+  values ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
+insert into Customers (CustomerName, City, Country)
+  values ('Cardinal', 'Stavanger', 'Norway');
+  
 
 
 
