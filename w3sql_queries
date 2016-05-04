@@ -71,33 +71,4 @@ DELETE FROM table_name;
 or
 DELETE * FROM table_name;
 
-// SQL INJECTION
-An SQL Injection can destroy your database.
-// Server Code - DO NOT CONSTRUCT SQL FROM USER INPUT
-  txtUserId = getRequestString("UserId");
-  txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
-  
-// SQL Injection Based on 1=1 is Always True
-UserId: 105 or 1=1
-Result: SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1
-// returns all rows from the table since 1=1 is always true
-
-//SQL Injection Based on ""="" is Always True
-UserID or Password: " or ""="
-Result: SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""
-
-// SQL Injection Based on Batched SQL Statements
-UserID: 105; DROP TABLE Suppliers
-Result: SELECT * FROM Users WHERE UserId = 105; DROP TABLE Suppliers
-// Deletes the Suppliers table
-
-// USE PARAMETERS FOR PROTECTION FROM SQL INJECTION
-txtNam = getRequestString("CustomerName");
-txtAdd = getRequestString("Address");
-txtCit = getRequestString("City");
-txtSQL = "INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)";
-db.Execute(txtSQL,txtNam,txtAdd,txtCit);
-// Exact implementation varies according to the web language: ASP.NET, PHP
-
-
 
