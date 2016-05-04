@@ -1,3 +1,6 @@
+w3schools SQL Tutorial
+http://www.w3schools.com/sql/
+
 // AVOID SQL INJECTION
 An SQL Injection can destroy your database.
 // Server Code - DO NOT CONSTRUCT SQL FROM USER INPUT
