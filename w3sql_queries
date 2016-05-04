@@ -71,4 +71,15 @@ DELETE FROM table_name;
 or
 DELETE * FROM table_name;
 
+// select records that match a pattern
+SELECT column_name(s)
+FROM table_name
+WHERE column_name LIKE pattern;
 
+select * from Customers
+  where City LIKE '%s'
+select * from Customers
+where City LIKE '%land%'
+
+select * from Customers
+  where City NOT like '%land%'
