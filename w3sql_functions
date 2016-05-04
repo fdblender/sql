@@ -11,3 +11,6 @@ select count(*) as NumberOfOrders from Orders;
 
 SELECT COUNT(DISTINCT column_name) FROM table_name;
 SELECT count(distinct CustomerID) from Orders;
+
+DELETE FROM table_name
+WHERE some_column=some_value;
