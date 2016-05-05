@@ -54,13 +54,13 @@ CREATE DATABASE new_db;
 // Create a new table
 CREATE TABLE Managers
 (ManagerID int,
-ManagerFirstName varchar(256),
-ManagerLastName varchar(256)
+ManagerFirstName varchar(255),
+ManagerLastName varchar(255)
 );
 
 // Add, delete, or modify columns in an existing table
 ALTER TABLE Managers
-ADD Dept varchar(256);
+ADD Dept varchar(255);
 
 ALTER TABLE Managers
 DROP COLUMN Dept;
@@ -71,7 +71,15 @@ or
 ALTER TABLE Managers
 MODIFY Dept int;
 
-
+// AD a Unique ID field that is auto-incremented for each new record
+// SYNTAX FOR SQL SERVER - CONSULT DOCUMENTATION FOR OTHER SQL
+CREATE TABLE Manager
+(
+ID int IDENTITY(1,1) PRIMARY KEY,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Department varchar(255)
+)
 
 
 
