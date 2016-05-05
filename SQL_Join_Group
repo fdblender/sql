@@ -26,6 +26,57 @@ LEFT JOIN Orders
 ON Customers.CustomerID=Orders.CustomerID
 ORDER BY Customers.CustomerName;
 
+// Select ALL the DIFFERENT (UNIQUE) cities from Customers and Suppliers tables:
+SELECT City from Customers
+UNION
+SELECT City from Suppliers
+ORDER BY City;
+
+//SELECT Country from Customers
+UNION
+SELECT Country from Suppliers
+ORDER BY Country;
+
+// Copy all columns into a NEW TABLE or BACKUP TABLE
+SELECT *
+INTO CustomersBackup2013
+FROM Customers;
+
+// Copy a few columns from Suppliers into Customers
+INSERT INTO Customers
+(CustomerName, Country)
+SELECT SupplierName, Country
+FROM Suppliers;
+
+// Create a database
+CREATE DATABASE new_db;
+
+// Create a new table
+CREATE TABLE Managers
+(ManagerID int,
+ManagerFirstName varchar(256),
+ManagerLastName varchar(256)
+);
+
+// Add, delete, or modify columns in an existing table
+ALTER TABLE Managers
+ADD Dept varchar(256);
+
+ALTER TABLE Managers
+DROP COLUMN Dept;
+
+ALTER TABLE Managers
+MODIFY COLUMN Dept int;
+or
+ALTER TABLE Managers
+MODIFY Dept int;
+
+
+
+
+
+
+
 // RIGHT JOIN: Return all employees and their orders they placed
 SELECT Orders.OrderID, Orders.EmployeeID, Orders.OrderDate, Employees.LastName, Employees.FirstName
 FROM Orders
