@@ -1,1 +1,69 @@
+// Create a database
+CREATE DATABASE new_db;
+
+// Create a new table
+// data type: varchar, integer, decimal, date, etc.
+CREATE TABLE Managers
+(ManagerID int,
+ManagerFirstName varchar(255),
+ManagerLastName varchar(255)
+);
+
+CREATE TABLE Portfolio
+(
+CustomerID int,
+InvestmentType varchar(255),
+InvestmentName varchar(255),
+Value decimal
+)
+
+
+// Add, delete, or modify columns in an existing table
+ALTER TABLE Managers
+ADD Dept varchar(255);
+
+ALTER TABLE Managers
+DROP COLUMN Dept;
+
+ALTER TABLE Managers
+MODIFY COLUMN Dept int;
+or
+ALTER TABLE Managers
+MODIFY Dept int;
+
+// AD a Unique ID field that is auto-incremented for each new record
+// SYNTAX FOR SQL SERVER - CONSULT DOCUMENTATION FOR OTHER SQL
+CREATE TABLE Manager
+(
+ID int IDENTITY(1,1) PRIMARY KEY,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Department varchar(255)
+)
+
+
+// In SQL, we have the following constraints:
+// NOT NULL - Indicates that a column cannot store NULL value
+// UNIQUE - Ensures that each row for a column must have a unique value
+// PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Ensures that a column (or combination of two or more columns) have a unique identity which helps to find a particular record in a table more easily and quickly
+// FOREIGN KEY - Ensure the referential integrity of the data in one table to match values in another table
+// CHECK - Ensures that the value in a column meets a specific condition
+// DEFAULT - Specifies a default value for a column
+
+CREATE TABLE Investments
+(
+CustomerID int NOT NULL,
+InvestmentType varchar(255),
+InvestmentName varchar(255),
+Value decimal
+)
+
+CREATE TABLE Portfolio
+(
+InvestID int NOT NULL UNIQUE PRIMARY KEY,
+CustomerID int NOT NULL,
+InvestmentType varchar(255),
+InvestmentName varchar(255),
+Value decimal
+)
 
