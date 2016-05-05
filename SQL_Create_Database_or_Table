@@ -52,6 +52,15 @@ Department varchar(255)
 
 CREATE TABLE Investments
 (
+PK_CustomerID int NOT NULL,  // primary key
+InvestmentType varchar(255),
+InvestmentName varchar(255),
+Value decimal
+)
+
+CREATE TABLE Portfolio
+(
+PK_InvestID int NOT NULL UNIQUE PRIMARY KEY,   // primary key
 CustomerID int NOT NULL,
 InvestmentType varchar(255),
 InvestmentName varchar(255),
@@ -60,10 +69,23 @@ Value decimal
 
 CREATE TABLE Portfolio
 (
-InvestID int NOT NULL UNIQUE PRIMARY KEY,
+InvestID int NOT NULL UNIQUE,
 CustomerID int NOT NULL,
 InvestmentType varchar(255),
 InvestmentName varchar(255),
-Value decimal
+Value decimal,
+CONSTRAINT PK_Invest_Cust_ID PRIMARY KEY (InvestID, CustomerID) //primary key - combine 2 fields
 )
+
+CREATE TABLE Investments
+(
+Invest_ID NOT NULL,
+Cust_ID int,
+InvestmentName varchar(255),
+PRIMARY KEY (Invest_ID),
+FOREIGN KEY (Cust_ID) REFERENCES Customers(Cust_ID)
+)
+
+
+FOREIGN KEY (
 
