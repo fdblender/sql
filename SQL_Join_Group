@@ -25,3 +25,25 @@ FROM Customers
 LEFT JOIN Orders
 ON Customers.CustomerID=Orders.CustomerID
 ORDER BY Customers.CustomerName;
+
+// RIGHT JOIN: Return all employees and their orders they placed
+SELECT Orders.OrderID, Orders.EmployeeID, Orders.OrderDate, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees
+ON Orders.EmployeeID=Employees.EmployeeID
+ORDER BY Orders.EmployeeID, Orders.OrderDate;
+
+// Select ALL Customers and ALL Orders, matching on CustomerID
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+
+
+
+
+
+
+
