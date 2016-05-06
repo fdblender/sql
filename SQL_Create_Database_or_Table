@@ -1,6 +1,8 @@
 // Create a database
 CREATE DATABASE new_db;
 
+// Common data types: http://www.w3schools.com/sql/sql_datatypes_general.asp
+
 // Create a new table
 // data type: varchar, integer, decimal, date, etc.
 CREATE TABLE Managers
@@ -58,6 +60,7 @@ InvestmentName varchar(255),
 Value decimal
 )
 
+// PRIMARY KEY
 CREATE TABLE Portfolio
 (
 PK_InvestID int NOT NULL UNIQUE PRIMARY KEY,   // primary key
@@ -77,6 +80,7 @@ Value decimal,
 CONSTRAINT PK_Invest_Cust_ID PRIMARY KEY (InvestID, CustomerID) //primary key - combine 2 fields
 )
 
+// FOREIGN KEY
 CREATE TABLE Investments
 (
 Invest_ID NOT NULL,
@@ -86,6 +90,26 @@ PRIMARY KEY (Invest_ID),
 FOREIGN KEY (Cust_ID) REFERENCES Customers(Cust_ID)
 )
 
+//CHECK and DEFAULT
+CREATE TABLE Investments
+(
+Invest_ID NOT NULL CHECK (Invest_ID>0),
+Investment_Name varchar(255)
+Invest_Date date DEFAULT GETDATE()
+)
 
-FOREIGN KEY (
+// INDEX AND UNIQUE INDEX - speeds up searches - index is stored internally
+CREATE INDEX PIndex
+on Portfolio (Invest_ID)
+
+CREATE UNIQUE INDEX PIndex
+on Portfolio (Invest_ID)
+
+
+
+
+
+
+
+
 
